@@ -233,6 +233,56 @@ section{ position:relative; overflow:hidden; }
 
 .wave-divider{ position:absolute; left:0; right:0; bottom:-2px; z-index:1; line-height:0; pointer-events:none; }
 .wave-divider svg{ width:100%; height:auto; display:block; }
+
+/* =========================================================
+   TICKER MARQUEE
+   ========================================================= */
+.ticker{
+  position:relative;
+  overflow:hidden;
+  background:var(--orange);
+  border-top:3px solid var(--dark);
+  border-bottom:3px solid var(--dark);
+  padding:14px 0;
+  z-index:3;
+}
+.ticker-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  animation:tickerScroll 32s linear infinite;
+}
+.ticker:hover .ticker-track{ animation-play-state:paused; }
+.ticker-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+  font-family:var(--ff-display);
+  font-size:20px;
+  letter-spacing:.03em;
+  color:var(--cream);
+  white-space:nowrap;
+  padding:0 22px;
+}
+.ticker-item .accent{ color:var(--dark); }
+.ticker-item svg{ width:18px; height:18px; flex-shrink:0; }
+.ticker-item .dot{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--dark);
+  flex-shrink:0;
+}
+@keyframes tickerScroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker-track{ animation:none; }
+}
+@media (max-width:480px){
+  .ticker{ padding:11px 0; }
+  .ticker-item{ font-size:16px; padding:0 16px; gap:9px; }
+}
 .wave-layer-1{ animation:waveSway1 10s ease-in-out infinite; transform-origin:50% 100%; }
 .wave-layer-2{ animation:waveSway2 13s ease-in-out infinite; transform-origin:50% 100%; }
 @keyframes waveSway1{
@@ -873,6 +923,32 @@ section{ position:relative; overflow:hidden; }
       <path class="wave-layer-2" d="M63.4272 435.835C712.293 -22.8175 774.799 424.887 1058.62 175.237C1239.56 16.0788 1575.81 -75.455 1782.93 80.9037C1948.62 205.991 1754.63 368.369 1758 526.176L1407.19 700H0L63.4272 435.835Z" fill="#FFB328"/>
       <path class="wave-layer-1" d="M63.4272 567.088C712.293 108.435 774.799 556.14 1058.62 306.49C1239.56 147.332 1376.3 -107.465 1583.42 48.8933C1749.12 173.98 1754.63 499.622 1758 657.428L1407.19 700H0L63.4272 567.088Z" fill="#FFF1DD" opacity="0.55"/>
     </svg>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<section class="ticker" aria-label="Token ticker">
+  <div class="ticker-track">
+    <div class="ticker-content" style="display:flex;align-items:center;">
+      <span class="ticker-item">$FT <span class="accent">·</span> FRENZY TOKEN</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> BNB SMART CHAIN</span>
+      <span class="ticker-item">BEP-20 <span class="dot"></span> CONTRACT RENOUNCED</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> 2% BUY <span class="accent">/</span> 2% SELL TAX</span>
+      <span class="ticker-item">LP LOCKED <span class="dot"></span> 5,000,000,000,000 SUPPLY</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> LIVE $FT BUY ALERTS</span>
+      <span class="ticker-item">5 UTILITIES <span class="accent">·</span> 1 TELEGRAM BOT</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> JOIN THE FRENZY</span>
+    </div>
+    <div class="ticker-content" style="display:flex;align-items:center;" aria-hidden="true">
+      <span class="ticker-item">$FT <span class="accent">·</span> FRENZY TOKEN</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> BNB SMART CHAIN</span>
+      <span class="ticker-item">BEP-20 <span class="dot"></span> CONTRACT RENOUNCED</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> 2% BUY <span class="accent">/</span> 2% SELL TAX</span>
+      <span class="ticker-item">LP LOCKED <span class="dot"></span> 5,000,000,000,000 SUPPLY</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> LIVE $FT BUY ALERTS</span>
+      <span class="ticker-item">5 UTILITIES <span class="accent">·</span> 1 TELEGRAM BOT</span>
+      <span class="ticker-item"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C10 6 6 8 6 13a6 6 0 0 0 12 0c0-2-1-3-1-3s0 2-1.5 2C17 12 16 10 16 8c0 0-2 1-2 4 0-6-2-6-2-10Z" fill="#2A0E03"/></svg> JOIN THE FRENZY</span>
+    </div>
   </div>
 </section>
 
