@@ -400,6 +400,34 @@ section{ position:relative; overflow:hidden; }
   0%,100%{ transform:translateY(0) rotate(0deg); }
   50%{ transform:translateY(-14px) rotate(6deg); }
 }
+
+/* ---- desktop-only hero composition (matches the Figma hero frame:
+   tag top-left near the logo, character+coin anchored bottom-left,
+   copy card/CTA/stats on the right — independent of the mobile
+   stacked layout below) ---- */
+@media (min-width: 1025px){
+  .hero-inner{
+    position:relative;
+    display:block;
+    min-height:clamp(560px, 46vw, 700px);
+    padding-bottom:100px;
+  }
+  .hero-tag{
+    position:absolute;
+    left:0; top:6px;
+    margin-bottom:0;
+  }
+  .hero-art{
+    position:absolute;
+    left:0; bottom:0;
+    width:34%;
+  }
+  .hero-content{
+    margin-left:46%;
+    width:42%;
+    padding-top:120px;
+  }
+}
 .type-caret{
   display:inline-block;
   width:2px;
